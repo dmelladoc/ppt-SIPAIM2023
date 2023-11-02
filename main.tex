@@ -1,0 +1,56 @@
+\documentclass{beamer}
+
+%% Definicion del tema
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+\usecolortheme{orchid}
+\setbeamerfont{subtitle}{size=\footnotesize}\setbeamerfont{subtitle}{size=\footnotesize}
+\setbeamerfont{author}{size=\small}
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{author}{size=\small}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault,condensed]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+
+%\usepackage[sytle=ieee,sorting=nyt,natbib=true,backend=biber]{biblatex}
+
+%% Pagina de titulo
+\title[SIPAIM-2023]{A Deep Learning Classifier Using Sliding Patches for Detection of Mammographical Findings}
+\author[Mellado et al.]{Diego Mellado, Marvin Querales, Julio Sotelo, Eduardo Godoy, Fabian Pardo, Scarlett Lever, St\'eren Chabert, Rodrigo Salas}
+\institute[DCIS-UV]{Doctorado en Ciencias e Ingenier\'ia para la Salud \\ Universidad de Valpara\'iso}
+\logo{\includegraphics[height=0.1\textheight]{imagenes/logoUV.png}}
+\date{\tiny{November 16th, 2023}}
+
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame}
+
+    \begin{frame}{Acknowledgements}
+        This work was funded by:
+        \begin{itemize}
+            \item National Agency for Research and Development (ANID) / Scholarship program / \textit{Becas Doctorado Nacional 2022} - 21221429
+            \item Millenium Science Initiative Program ICN2021\_004
+            \item ANID FONDEF IDEA I+D ID20i10332 ``\textit{Artificial Intelligence System for Support in Diagnosis and Priorization of Mammographic Exams}''
+            \item ANID FONDECYT Research Grant 1221938
+        \end{itemize}
+
+        \begin{figure}
+            \centering
+            \includegraphics[height=0.2\textheight]{imagenes/logoIHealth.png}
+            \includegraphics[height=0.2\textheight]{imagenes/logoANID.png}
+        \end{figure}
+    \end{frame}
+
+    \input{slides/intro.tex}
+    \input{slides/metodo.tex}
+    \input{slides/resultados.tex}
+    \input{slides/discusion.tex}
+
+\end{document}
