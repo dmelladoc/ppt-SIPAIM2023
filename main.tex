@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 %% Definicion del tema
 \useinnertheme{rounded}
@@ -16,13 +16,21 @@
 \usepackage[english]{babel}
 \usepackage{csquotes}
 
-%\usepackage[sytle=ieee,sorting=nyt,natbib=true,backend=biber]{biblatex}
+\usepackage[citestyle=ieee,sorting=nyt]{biblatex}
+\addbibresource{bibliografia.bib}
+
+%citas en pie de pagina
+\renewcommand*{\bibfont}{\scriptsize}
+\newcommand{\citef}[1]{\footnote[frame]{\fullcite{#1}}}
+\setlength{\footnotesep}{0.5em}
+
 
 %% Pagina de titulo
+
 \title[SIPAIM-2023]{A Deep Learning Classifier Using Sliding Patches for Detection of Mammographical Findings}
 \author[Mellado et al.]{Diego Mellado, Marvin Querales, Julio Sotelo, Eduardo Godoy, Fabian Pardo, Scarlett Lever, St\'eren Chabert, Rodrigo Salas}
 \institute[DCIS-UV]{Doctorado en Ciencias e Ingenier\'ia para la Salud \\ Universidad de Valpara\'iso}
-\logo{\includegraphics[height=0.1\textheight]{imagenes/logoUV.png}}
+\logo{\includegraphics[height=0.075\textheight]{imagenes/logoUV.png}}
 \date{\tiny{November 16th, 2023}}
 
 
