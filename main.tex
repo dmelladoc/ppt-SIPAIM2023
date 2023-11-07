@@ -32,11 +32,9 @@
 \setbeamercolor{title}{fg=UVazul, bg=white}
 %\setbeamercolor{frametitle}{bg=UVazul2,fg=UVazul}
 
-%barras de progreso
-\makeatletter
 
-%Titulos 
-\setbeamertemplate{frametitle}{} %No apareceran en el frame
+\makeatletter
+% Fuentes
 \setbeamerfont{frametitle}{size=\footnotesize,series=\bfseries}
 \setbeamerfont{section in head/foot}{size=\footnotesize}
 \setbeamerfont{subsection in head/foot}{size=\footnotesize}
@@ -45,10 +43,13 @@
 \setbeamerfont{institute}{size=\normalsize, series=\mdseries}
 \setbeamerfont{date}{size=\small}
 \setbeamerfont{footnote}{size=\scriptsize}
-% \setbeamerfont{date}{size=\normalsize}
 
+%Titulos 
+\setbeamertemplate{frametitle}{} %No apareceran en el frame
+\def\insertframetitle{} %Para que no aparezca el titulo en la barra superior
+
+% Params Barra de progreso
 \def\progressbar@progressbar{}
-\def\insertframetitle{}
 \newcount\progressbar@tmpcounta
 \newcount\progressbar@tmpcountb
 \newdimen\progressbar@pbht
@@ -82,7 +83,9 @@
     {%
         \raggedright
         {\usebeamerfont{title}\inserttitle\par}
-        \medskip
+        \vskip0.35em
+        {\color{UVturquesa}\hrule}
+        \vskip0.65em
         {\usebeamerfont{author}\insertauthor\par}
         {\usebeamerfont{institute}\insertinstitute\par}
         \medskip
