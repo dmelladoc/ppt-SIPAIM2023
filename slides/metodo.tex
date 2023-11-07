@@ -8,7 +8,7 @@
         \begin{column}{0.5\textwidth}
             \begin{itemize}
                 \item \textbf{Vindr-mammo} Dataset \citef{phamhieuhuyVinDrMammoLargescaleBenchmark}
-                \item 5000 digital mammogram examinations containing for each view:
+                \item \num{5000} digital mammogram examinations containing for each view:
                 \begin{itemize}
                     \item BIRADs
                     \item Breast density
@@ -21,7 +21,7 @@
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[height=0.5\textheight,keepaspectratio]{imagenes/vista_vindr.png}
+                \includegraphics[height=0.7\textheight,keepaspectratio]{imagenes/vista_vindr.png}
                 \caption{Example of a mammogram from the Vindr-mammo dataset.}
             \end{figure}
         \end{column}
@@ -64,7 +64,7 @@
         \item VGG19
     \end{itemize}
 
-    Classifier Layer using 2 layer MLP with 512 hidden units and ReLU activation.
+    Classifier Layer using 2 layer MLP with \num{512} hidden units and ReLU activation.
     Output layer with 10 units and sigmoid activation.
 \end{frame}
 
@@ -85,7 +85,7 @@
         \begin{itemize}
             \item Area: $[.005, 5.]$ of the finding bounding box area.
             \item Aspect ratio: $[0.33 1.66]$ of the finding bounding box aspect ratio.
-            \item The bounding box center is uniform sampled from $50$ pixels around the original center.
+            \item The bounding box center is uniform sampled from \SI{50}{\pixel} around the original center.
         \end{itemize}
         \item For normal images (\emph{No Finding}), we sample a random area of the breast, with similar sampling parameters.
         \item Sampled image is resized to $256 \times 256$ pixels.
@@ -98,8 +98,8 @@
         \item Focal Loss Function \begin{equation*}
             \mathcal{L}_{\text{Focal}} = -(1 - p_t)^\gamma \log{(p_t)}
         \end{equation*}
-        \item Adam Optimizer with a starting learning rate of $0.0005$
-        \item Reduce on plateau with a patience of 5 epochs and a factor of $0.1$
+        \item Adam Optimizer with a starting learning rate of \num{1e-4}
+        \item Reduce on plateau with a patience of 5 epochs and a factor of \num{0.1}
         \item Weighted sampling of the dataset, in order to reduce imbalance.
     \end{itemize}
 \end{frame}
@@ -112,7 +112,7 @@
 
 \begin{frame}{Our method}
     \begin{itemize}
-        \item Segmentation of the complete image into a set of overlapping windows of size $256 \times 256$ pixels and stride of $32$ pixels.
+        \item Segmentation of the complete image into a set of overlapping windows of size $256 \times 256$ pixels and stride of \SI{32}{\pixel}.
         \item Reconstruction of prediction heatmap from the overlapping windows.
     \end{itemize}
 \end{frame}

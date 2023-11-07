@@ -6,6 +6,17 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage{csquotes}
+\usepackage{siunitx}
+\sisetup{
+    detect-all,
+    range-phrase=--,
+    range-units=single,
+    table-auto-round=true,
+    table-format=2.3,
+}
+\DeclareSIUnit\pixel{px}
+\usepackage{booktabs}
+
 \usepackage{tikz} %para la barra de progreso
 \usetikzlibrary{calc}
 

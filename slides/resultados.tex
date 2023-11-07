@@ -1,6 +1,26 @@
-\section{Current Results}
-\subsection{Results}
+\section{Results}
+\subsection{Model Selection}
 
-\begin{frame}{Results}
+\begin{frame}{Results of Model Selection}
+    \input{tablas/f1_classifiers.tex}
+
+    \emph{EfficientNet} has the best overall performance, with an F1 score of \num{0.727}. We chose this model as the backbone for our classifier.
+\end{frame}
+
+\subsection{Classifier}
+\begin{frame}{Results of our Classifier}
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            \input{tablas/metrics_best.tex}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            Our model achieves a weighted Accuracy of \SI{93.80}{\percent} and a weighted F1 score of \num{0.9557}
+        \end{column}
+    \end{columns}
+    
+\end{frame}
+
+\subsection{Sliding patches}
+\begin{frame}
     
 \end{frame}
