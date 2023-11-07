@@ -13,13 +13,10 @@
 \useinnertheme{rounded}
 \useoutertheme{infolines}
 \usecolortheme{orchid}
-\setbeamerfont{subtitle}{size=\footnotesize}\setbeamerfont{subtitle}{size=\footnotesize}
-\setbeamerfont{author}{size=\small}
-\setbeamertemplate{navigation symbols}{}
-\setbeamerfont{author}{size=\small}
 \setbeamertemplate{navigation symbols}{}
 
-\setbeamersize{text margin left=10mm, text margin right=5mm}
+
+\setbeamersize{text margin left=5mm, text margin right=3mm}
 
 %colores
 \definecolor{UVazul}{RGB}{0, 60, 88}
@@ -28,10 +25,28 @@
 \setbeamercolor{palette primary}{bg=UVazul,fg=white}
 \setbeamercolor{palette secondary}{bg=UVazul2,fg=white}
 \setbeamercolor{palette tertiary}{bg=UVturquesa,fg=white}
+\setbeamercolor{titlelike}{fg=UVazul2,bg=white}
+\setbeamercolor{caption name}{fg=UVazul2, bg=white}
+\setbeamercolor{bibliography entry author}{fg=UVazul, bg=white}
+\setbeamercolor{bibliography entry note}{fg=UVazul2!80, bg=white}
+\setbeamercolor{title}{fg=UVazul, bg=white}
 %\setbeamercolor{frametitle}{bg=UVazul2,fg=UVazul}
 
 %barras de progreso
 \makeatletter
+
+%Titulos 
+\setbeamertemplate{frametitle}{} %No apareceran en el frame
+\setbeamerfont{frametitle}{size=\footnotesize,series=\bfseries}
+\setbeamerfont{section in head/foot}{size=\footnotesize}
+\setbeamerfont{subsection in head/foot}{size=\footnotesize}
+\setbeamerfont{title}{size=\Huge,series=\bfseries, shape=\upshape}
+\setbeamerfont{author}{size=\normalsize, series=\mdseries, shape=\slshape}
+\setbeamerfont{institute}{size=\normalsize, series=\mdseries}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{footnote}{size=\scriptsize}
+% \setbeamerfont{date}{size=\normalsize}
+
 \def\progressbar@progressbar{}
 \def\insertframetitle{}
 \newcount\progressbar@tmpcounta
@@ -62,22 +77,39 @@
     \end{tikzpicture}%
 }
 
+%Ventana de titulo
+\setbeamertemplate{title page}{
+    {%
+        \raggedright
+        {\usebeamerfont{title}\inserttitle\par}
+        \medskip
+        {\usebeamerfont{author}\insertauthor\par}
+        {\usebeamerfont{institute}\insertinstitute\par}
+        \medskip
+        {\usebeamerfont{date}\insertdate\par}
+        \bigskip
+    }
+    \begin{centering}    
+        \inserttitlegraphic\par
+    \end{centering}
+}
+
+
 %Barra superior
 \setbeamertemplate{headline}{
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.2\paperwidth,ht=3.5ex,right,rightskip=1.5ex,dp=1.5ex]{section in head/foot}%
+        \begin{beamercolorbox}[wd=.15\paperwidth,ht=3.5ex,right,rightskip=1ex,dp=1.5ex]{section in head/foot}%
             \usebeamerfont{section in head/foot}
             \insertsectionhead
-            \hspace*{2ex}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.3\paperwidth,ht=3.5ex,left,leftskip=1.5ex,dp=1.5ex]{subsection in head/foot}%
+        \begin{beamercolorbox}[wd=.25\paperwidth,ht=3.5ex,left,leftskip=1ex,dp=1.5ex]{subsection in head/foot}%
             \usebeamerfont{subsection in head/foot}
             \insertsubsectionhead
             \hspace*{2ex}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth,ht=3.5ex,center, dp=1.5ex]{title in head/foot}%
-            \usebeamerfont{title in head/foot}
+        \begin{beamercolorbox}[wd=.6\paperwidth,ht=3.5ex,center, dp=1.5ex]{title in head/foot}%
+            \usebeamerfont{frametitle}
             \insertframetitle
             \hspace*{2ex}
         \end{beamercolorbox}%
@@ -109,8 +141,6 @@
 \makeatother
 
 
-
-
 \usepackage[citestyle=ieee,sorting=nyt]{biblatex}
 \addbibresource{bibliografia.bib}
 
@@ -124,16 +154,20 @@
 
 \title[SIPAIM-2023]{A Deep Learning Classifier Using Sliding Patches for Detection of Mammographical Findings}
 \author[Mellado et al.]{Diego Mellado, Marvin Querales, Julio Sotelo, Eduardo Godoy, Fabian Pardo, Scarlett Lever, St\'eren Chabert, Rodrigo Salas}
-\institute[DCIS-UV]{Doctorado en Ciencias e Ingenier\'ia para la Salud \\ Universidad de Valpara\'iso}
-\logo{\includegraphics[height=0.075\textheight]{imagenes/logoUV.png}}
-\date{\tiny{November 16th, 2023}}
+\institute[DCIS-UV]{Doctorado en Ciencias e Ingenier\'ia para la Salud, Universidad de Valpara\'iso}
+\titlegraphic{\includegraphics[height=0.15\textheight]{imagenes/logoUV.png}}
+\date{November 16th, 2023}
 
 
 \begin{document}
-
-    \begin{frame}
-        \titlepage
-    \end{frame}
+    
+    {%
+        \setbeamertemplate{headline}{}
+        \setbeamertemplate{footline}{}
+        \begin{frame}
+            \titlepage
+        \end{frame}
+    }%
 
     \begin{frame}{Acknowledgements}
         This work was funded by:
