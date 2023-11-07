@@ -52,6 +52,7 @@
     \end{figure}
 \end{frame}
 % Seleccion de nuestro modelo
+\subsection{Model Selection}
 \begin{frame}{Evaluation of deep learning architectures}
     We evaluated the following architectures as a backbone:
     \begin{itemize}
@@ -76,9 +77,37 @@
     \end{itemize}
 \end{frame}
 
+\subsection{Training}
+\begin{frame}{Image Sampling}
+    \begin{itemize}
+        \item For each finding present on an image, we sampled a random area of the finding.
+        \item Area and aspect ratio randomly sampled from an Uniform distribution.
+        \begin{itemize}
+            \item Area: $[.05, 5.]$ of the finding bounding box area.
+            \item Aspect ratio: $[0.33 1.66]$ of the finding bounding box aspect ratio.
+            \item The bounding box center is uniform sampled from $50$ pixels around the original center.
+        \end{itemize}
+        \item For normal images (\emph{No Finding}), we sample a random area of the breast, with similar sampling parameters.
+        \item Sampled image is resized to $256 \times 256$ pixels.
+        \item \textbf{image augmentation}: Contrast, brightness, saturation, flip and rotation are randomly modified.
+    \end{itemize}
+\end{frame}
 
-
-
+\begin{frame}{Training parameters}
+    \begin{itemize}
+        \item Focal Loss Function 
+        \item Adam Optimizer with a starting learning rate of $10^{-4}$
+        \item Reduce on plateau with a patience of 5 epochs and a factor of $0.1$
+        \item Weighted sampling of the dataset, in order to reduce imbalance.
+    \end{itemize}
+\end{frame}
 
 % Analisis mediante ventans
+\subsection{Sliding patches for detection}
+\begin{frame}{Local Information}
+    
+\end{frame}
 
+\begin{frame}{Our method}
+    
+\end{frame}

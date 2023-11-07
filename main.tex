@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[10pt,aspectratio=169]{beamer}
 
 %% Definicion del tema
 \useinnertheme{rounded}
@@ -9,6 +9,42 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamerfont{author}{size=\small}
 \setbeamertemplate{navigation symbols}{}
+
+\setbeamersize{text margin left=10mm, text margin right=5mm}
+
+%colores
+\definecolor{UVazul}{RGB}{0, 60, 88}
+\definecolor{UVazul2}{RGB}{0, 46, 56}
+\definecolor{UVturquesa}{RGB}{6, 113, 126}
+\setbeamercolor{palette primary}{bg=UVazul,fg=white}
+\setbeamercolor{palette secondary}{bg=UVazul2,fg=white}
+\setbeamercolor{palette tertiary}{bg=UVturquesa,fg=white}
+%\setbeamercolor{frametitle}{bg=UVazul2,fg=UVazul}
+
+%Barra superior
+\setbeamertemplate{headline}{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.25\paperwidth,ht=3.5ex,right,rightskip=1.5ex,dp=1.5ex]{section in head/foot}%
+            \usebeamerfont{section in head/foot}
+            \insertsectionhead
+            \hspace*{2ex}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.25\paperwidth,ht=3.5ex,left,leftskip=1.5ex,dp=1.5ex]{subsection in head/foot}%
+            \usebeamerfont{subsection in head/foot}
+            \insertsubsectionhead
+            \hspace*{2ex}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=3.5ex,center,dp=1.5ex]{title in head/foot}
+            \usebeamerfont{title in head/foot}
+            \inserttitle
+            \hspace*{2ex}
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+
+
 
 \usepackage[utf8]{inputenc}
 \usepackage[sfdefault,condensed]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
