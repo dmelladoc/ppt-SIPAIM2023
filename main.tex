@@ -1,5 +1,14 @@
 \documentclass[10pt,aspectratio=169]{beamer}
 
+%% Paquetes
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault,condensed]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{tikz} %para la barra de progreso
+\usetikzlibrary{calc}
+
 %% Definicion del tema
 \useinnertheme{rounded}
 \useoutertheme{infolines}
@@ -21,36 +30,86 @@
 \setbeamercolor{palette tertiary}{bg=UVturquesa,fg=white}
 %\setbeamercolor{frametitle}{bg=UVazul2,fg=UVazul}
 
+%barras de progreso
+\makeatletter
+\def\progressbar@progressbar{}
+\def\insertframetitle{}
+\newcount\progressbar@tmpcounta
+\newcount\progressbar@tmpcountb
+\newdimen\progressbar@pbht
+\newdimen\progressbar@pbwd  
+\newdimen\progressbar@tmpdim
+
+\progressbar@pbwd=0.35\linewidth
+\progressbar@pbht=1.5ex
+
+\def\progressbar@progressbar{%
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+    \progressbar@tmpdim=\progressbar@pbwd
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+    
+    \begin{tikzpicture}[rounded corners=2pt, very thin]
+        \shade[left color=UVturquesa!50, right color=gray!20] (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+        \shade[left color=UVazul2, middle color=UVazul, right color=UVturquesa] (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+        \draw[color=normal text.fg!50] (0pt, 0pt) rectangle (\progressbar@pbwd, \progressbar@pbht) 
+            node[pos=0.5,color=white] {\textnormal{%
+                \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+                \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\%%
+            }%
+        };
+    \end{tikzpicture}%
+}
+
 %Barra superior
 \setbeamertemplate{headline}{
     \leavevmode%
     \hbox{%
-        \begin{beamercolorbox}[wd=.25\paperwidth,ht=3.5ex,right,rightskip=1.5ex,dp=1.5ex]{section in head/foot}%
+        \begin{beamercolorbox}[wd=.2\paperwidth,ht=3.5ex,right,rightskip=1.5ex,dp=1.5ex]{section in head/foot}%
             \usebeamerfont{section in head/foot}
             \insertsectionhead
             \hspace*{2ex}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.25\paperwidth,ht=3.5ex,left,leftskip=1.5ex,dp=1.5ex]{subsection in head/foot}%
+        \begin{beamercolorbox}[wd=.3\paperwidth,ht=3.5ex,left,leftskip=1.5ex,dp=1.5ex]{subsection in head/foot}%
             \usebeamerfont{subsection in head/foot}
             \insertsubsectionhead
             \hspace*{2ex}
         \end{beamercolorbox}%
-        \begin{beamercolorbox}[wd=.5\paperwidth,ht=3.5ex,center,dp=1.5ex]{title in head/foot}
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=3.5ex,center, dp=1.5ex]{title in head/foot}%
             \usebeamerfont{title in head/foot}
-            \inserttitle
+            \insertframetitle
             \hspace*{2ex}
         \end{beamercolorbox}%
     }%
     \vskip0pt%
 }
 
+%Barra inferior
+\setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=0.1\paperwidth, ht=2.5ex, right, rightskip=1.5ex, dp=1.5ex]{author in head/foot}%
+            \usebeamerfont{author in head/foot}%
+            \insertshortauthor%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\paperwidth, ht=2.5ex, left, leftskip=1.5ex, dp=1.5ex]{title in head/foot}%
+            \usebeamerfont{title in head/foot}%
+            \inserttitle%
+            \hspace*{2ex}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.4\paperwidth, ht=2.5ex, right, rightskip=2ex, dp=1.5ex]{white}%
+            \progressbar@progressbar%
+            \vspace*{-1ex}
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+
+\makeatother
 
 
-\usepackage[utf8]{inputenc}
-\usepackage[sfdefault,condensed]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{csquotes}
+
 
 \usepackage[citestyle=ieee,sorting=nyt]{biblatex}
 \addbibresource{bibliografia.bib}
