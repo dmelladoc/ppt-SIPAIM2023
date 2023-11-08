@@ -21,10 +21,28 @@
 \end{frame}
 
 \subsection{Sliding patches}
+\begin{frame}{Prediction on local windows}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{imagenes/pred_ventanas.png}
+        \caption{Image with bounding boxes of its findings and prediction of a row of local windows using our classifier.}
+    \end{figure}
+\end{frame}
+
 \begin{frame}{Heatmap}
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{imagenes/prediction.png}
         \caption{Cropped test image with bounding boxes of its findings, feature activation heatmap, and prediction of the classifier.}
     \end{figure}
+\end{frame}
+
+\subsection{Scales}
+\begin{frame}{Effects of scale of window}
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.7\textheight,keepaspectratio]{imagenes/ratios.png}
+        \caption{Prediction of classifier, using finding at different scales.}
+    \end{figure}
+    
 \end{frame}
