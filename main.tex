@@ -53,7 +53,8 @@
 \setbeamerfont{author}{size=\normalsize, series=\mdseries, shape=\slshape}
 \setbeamerfont{institute}{size=\normalsize, series=\mdseries}
 \setbeamerfont{date}{size=\small}
-\setbeamerfont{footnote}{size=\scriptsize}
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamerfont{footnotemark}{size=\scriptsize}
 
 %Titulos 
 \setbeamertemplate{frametitle}{} %No apareceran en el frame
@@ -203,5 +204,10 @@
     \input{slides/metodo.tex}
     \input{slides/resultados.tex}
     \input{slides/discusion.tex}
-
+    
+    %bibliografia
+    \section{Bibliography}
+    \begin{frame}[allowframebreaks]{References}
+        \printbibliography
+    \end{frame}
 \end{document}
