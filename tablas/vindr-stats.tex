@@ -1,0 +1,17 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+    \caption{Findings statistics of Vindr-Mammo Dataset}
+    \label{tab:vindr-samples}
+    \begin{tabular}{@{}l S[table-format=3]S[table-format=3]S[table-format=4]@{}}
+    \toprule
+    Finding                           & {Training} & {Test} & {Total} \\ \midrule
+    Mass                              & 989      & 237  & 1226  \\
+    Suspicious Calcification          & 428      & 115  & 543   \\
+    Asymmetries (Global, Focal, etc.) & 313      & 79   & 392   \\
+    Architectural Distortion          & 95       & 24   & 119   \\
+    Skin Thickening                   & 45       & 12   & 57    \\
+    Retraction (Skin or Nipple)       & 45       & 10   & 55    \\
+    Suspicious Lymph Node             & 46       & 7    & 37    \\ \bottomrule
+    \end{tabular}
+    \end{table}
