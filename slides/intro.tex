@@ -6,6 +6,7 @@
             \begin{itemize}
                 \item Worldwide, has an average mortality rate of \num{13.6} per \num{100000} women in 2020 \citef{BreastCancerStatistics}
                 \item In Chile, has an average mortality rate of \num{11.8} per \num{100000} women, as of 2018 \citef{ministeriodesaludInformeVigilanciaCancer2021}
+                \item Early screening is effective but dependant on multiple social, healthcare and economic factors.
                 \item Early diagnosis and survival rate in Chile has increased due to the implementation of screening programs \citef{castilloResultadosTratamientoCancer2017}
             \end{itemize}
         \end{column}
@@ -13,7 +14,7 @@
             \begin{figure}
                 \centering
                 \includegraphics[height=0.5\textheight]{imagenes/mortalidad.png}
-                \caption{Mortality rate and number of potential lost years of life due to breast cancer in Chilean Women (2009-2018)}
+                \caption{Mortality rate and number of potential lost years of life due to breast cancer of Chilean Women per region (2009-2018)}
             \end{figure}
         \end{column}
     \end{columns}
@@ -22,16 +23,26 @@
 
 % Descripcion del cancer de mama
 \begin{frame}{AI in breast Cancer}
-    \begin{itemize}
-        \item Machine Learning and Deep Learning models have been implemented for the detection of breast cancer in mammograms. \citef{rodriguez-ruizDetectionBreastCancer2018}
-        \item Current Challenges:
-        \begin{itemize}
-            \item Detection of breast lesion location in mammograms \citef{diazSonSistemasInteligencia2021}
-            \item Visualisation tools for interpretation of prediction models.
-            \item Breast Density Estimation
-            \item Breast image classification beyond malignity.
-        \end{itemize}
-    \end{itemize}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{itemize}
+                \item Machine Learning and Deep Learning models have been implemented for the detection of breast cancer in mammograms. \citef{rodriguez-ruizDetectionBreastCancer2018}
+                \item Current Challenges:
+                \begin{itemize}
+                    \item Detection of breast lesion location in mammograms \citef{diazSonSistemasInteligencia2021}
+                    \item Visualisation tools for interpretation of prediction models.
+                    \item Breast Density Estimation
+                    \item Breast image classification beyond malignity.
+                \end{itemize}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{imagenes/nvidiaAI.jpg}
+            \end{figure}
+        \end{column}
+    \end{columns}
     
 \end{frame}
 
