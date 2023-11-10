@@ -57,16 +57,20 @@
 \begin{frame}{Evaluation of deep learning architectures}
     We evaluated the following architectures as a backbone:
     \begin{itemize}
-        \item ResNet50
+        \item ResNet50 \cite{heDeepResidualLearning2015}
         \item EfficientNetV2 \cite{tanEfficientNetV2SmallerModels2021}
-        \item DenseNet
-        \item Swin Transformer
-        \item MobileNet
-        \item VGG19
+        \item DenseNet121 \cite{huangDenselyConnectedConvolutional2018}
+        \item Swin Transformer \cite{liuSwinTransformerHierarchical2021}
+        \item MobileNet \cite{howardMobileNetsEfficientConvolutional2017}
+        \item VGG19 \cite{simonyanVeryDeepConvolutional2015}
     \end{itemize}
 
-    Classifier Layer using 2 layer MLP with \num{512} hidden units and ReLU activation.
-    Output layer with 10 units and sigmoid activation.
+    \begin{itemize}
+        \item Dropout of \num{0.5} after the backbone.
+        \item Classifier Layer using a 2-layer MLP with \num{512} hidden units and ReLU activation.
+        \item Output layer with sigmoid activation.
+    \end{itemize}
+    
 \end{frame}
 
 % Modelo de extraccion de caracteristicas
@@ -115,13 +119,12 @@
 
 % Analisis mediante ventans
 \subsection{Sliding patches for detection}
-\begin{frame}{Local Information}
-    
-\end{frame}
 
 \begin{frame}{Our method}
     \begin{itemize}
         \item Segmentation of the complete image into a set of overlapping windows of size $256 \times 256$ pixels and stride of \SI{32}{\pixel}.
         \item Reconstruction of prediction heatmap from the overlapping windows.
+        \item Feature visualization by weighted sum of feature maps, based on most important features. Using a Random Forest Classifier trained on the features extracted from the training set.
+        \item Random Forest Classifier achieves similar results as the MLP classifier, used only to identify the most important features.
     \end{itemize}
 \end{frame}

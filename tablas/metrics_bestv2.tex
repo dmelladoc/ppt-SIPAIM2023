@@ -1,0 +1,21 @@
+\begin{table}[ht]
+    \centering
+    \caption{Metrics of pathological findings classification task using Vindr}
+    \resizebox{0.95\textwidth}{!}{%
+    \begin{tabular}{p{0.3\textwidth}SSSSS[table-format=4]}
+        \toprule
+        & {Accuracy} & {Precision} & {Recall} & {F1} & {Support} \\
+        \midrule
+        No Finding               & 0.9629 & 0.9989 & 0.9594 & 0.9787 & 3643 \\
+        Mass                     & 0.9734 & 0.7462 & 0.8186 & \bfseries 0.7807 &  237 \\
+        Suspicious Calcification & 0.9910 & 0.8545 & 0.8174 & \bfseries 0.8356 &  115 \\
+        Asymmetries              & 0.9775 & 0.3556 & 0.2025 & 0.2581 &   79 \\
+        Architectural Distortion & 0.9944 & 0.5333 & 0.3333 & 0.4103 &   24 \\
+        Suspicious Lymph Node    & 0.9976 & 0.5714 & 0.3636 & 0.4444 &   11 \\
+        Skin Thickening          & 0.9983 & 0.7778 & 0.5833 & 0.6667 &   12 \\
+        Retractions              & 0.9983 & 1.0000 & 0.2222 & 0.3636 &    9 \\
+    \bottomrule
+    \end{tabular}
+    }%
+    \label{tab:best_model}
+\end{table}
