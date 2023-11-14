@@ -63,12 +63,6 @@
         \item MobileNet \cite{howardMobileNetsEfficientConvolutional2017}
         \item VGG19 \cite{simonyanVeryDeepConvolutional2015}
     \end{itemize}
-
-    \begin{itemize}
-        \item Dropout of \num{0.5} after the backbone.
-        \item Classifier Layer using a 2-layer MLP with \num{512} hidden units and ReLU activation.
-        \item Output layer with sigmoid activation.
-    \end{itemize}
     
 \end{frame}
 
@@ -76,8 +70,10 @@
 \begin{frame}{Feature Extraction Model}
     \begin{itemize}
         \item We use the backbone of the selected architecture as a feature extractor.
-        \item The output of the backbone is flattened and fed to the classifier.
-        \item The classifier is trained using the cropped images.
+        \item Output is flattened and fed to the classifier.
+        \item Dropout of \num{0.5} of each input before the Classifier (On training).
+        \item Classifier using a 2-layer MLP with \num{512} hidden units and ReLU activation.
+        \item Output layer with sigmoid activation.
     \end{itemize}
 \end{frame}
 
@@ -107,12 +103,17 @@
 
 \begin{frame}{Training parameters}
     \begin{itemize}
-        \item Focal Loss Function \begin{equation*}
-            \mathcal{L}_{\text{Focal}} = -(1 - p_t)^\gamma \log{(p_t)}
-        \end{equation*}
+        \item Focal Loss Function \citef{linFocalLossDense2018} 
+        \begin{itemize}
+            \item $\mathcal{L}_{\text{Focal}} = -(1 - p_t)^\gamma \log{(p_t)} $
+            \item $\gamma$ is a focusing parameter.
+            \item $\gamma = 0$ is equivalent to Cross Entropy Loss.
+            \item We used a $\gamma$ of \num{2}.
+        \end{itemize}
+
         \item Adam Optimizer with a starting learning rate of \num{1e-4}
         \item Reduce on plateau with a patience of 5 epochs and a factor of \num{0.1}
-        \item Weighted sampling of the dataset, in order to reduce imbalance.
+        \item Weighted Class Sampling of the dataset, in order to reduce imbalance.
     \end{itemize}
 \end{frame}
 
@@ -123,7 +124,7 @@
     \begin{itemize}
         \item Segmentation of the complete image into a set of overlapping windows of size $256 \times 256$ pixels and stride of \SI{32}{\pixel}.
         \item Reconstruction of prediction heatmap from the overlapping windows.
-        \item Feature visualization by weighted sum of feature maps, based on most important features. Using a Random Forest Classifier trained on the features extracted from the training set.
-        \item Random Forest Classifier achieves similar results as the MLP classifier, used only to identify the most important features.
+        \item Feature visualization by weighted sum of feature maps, based on most important features. Using a \emph{Random Forest Classifier} trained on the features extracted from the training set.
+        \item Random Forest achieves similar results as the MLP classifier, and used only to identify the most important features
     \end{itemize}
 \end{frame}

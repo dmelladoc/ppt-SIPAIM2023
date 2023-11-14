@@ -17,7 +17,7 @@
 \DeclareSIUnit\pixel{px}
 
 \usepackage{booktabs}
-
+\usepackage{multirow}
 \usepackage{tikz} %para la barra de progreso
 \usetikzlibrary{calc}
 
@@ -84,6 +84,7 @@
         \shade[left color=UVazul2, middle color=UVazul, right color=UVturquesa] (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
         \draw[color=normal text.fg!50] (0pt, 0pt) rectangle (\progressbar@pbwd, \progressbar@pbht) 
             node[pos=0.5,color=white] {\textnormal{%
+                [\insertframenumber/\inserttotalframenumber]\,%
                 \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
                 \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\%%
             }%

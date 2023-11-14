@@ -3,15 +3,18 @@
 \begin{table}[]
     \caption{Findings statistics of Vindr-Mammo Dataset}
     \label{tab:vindr-samples}
-    \begin{tabular}{@{}l S[table-format=3]S[table-format=3]S[table-format=4]@{}}
+    \begin{tabular}{@{}l r S[table-format=3]S[table-format=3]S[table-format=4]@{}}
     \toprule
-    Finding                           & {Training} & {Test} & {Total} \\ \midrule
-    Mass                              & 989      & 237  & 1226  \\
-    Suspicious Calcification          & 428      & 115  & 543   \\
-    Asymmetries (Global, Focal, etc.) & 313      & 79   & 392   \\
-    Architectural Distortion          & 95       & 24   & 119   \\
-    Skin Thickening                   & 45       & 12   & 57    \\
-    Retraction (Skin or Nipple)       & 45       & 10   & 55    \\
-    Suspicious Lymph Node             & 46       & 7    & 37    \\ \bottomrule
+    \multicolumn{2}{r}{Finding} & {Training} & {Test} & {Total} \\ \midrule
+    \multicolumn{2}{r}{Mass} & 989 & 237 & 1226  \\
+    \multicolumn{2}{r}{Suspicious Calcification} & 428 & 115 & 543 \\
+    \multirow{3}{*}{Assymetries} & General & 77 & 20 & 97 \\
+    & Focal & 216 & 53 & 269 \\
+    & Global & 20 & 6 & 26 \\
+    \multicolumn{2}{r}{Architectural Distortion}  & 95 & 24 & 119 \\
+    \multicolumn{2}{r}{Skin Thickening} & 45  & 12 & 57 \\
+    \multirow{2}{*}{Retractions} & Skin & 15 & 3 & 18  \\
+    & Nipple & 30 & 7 & 37 \\
+    \multicolumn{2}{r}{Suspicious Lymph Node} & 46       & 11    & 57    \\ \bottomrule
     \end{tabular}
     \end{table}
